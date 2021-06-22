@@ -4,6 +4,7 @@
 #include "arbol.h"
 #include "lectura.h"
 #include "aux.h"
+#include "funciones.h"
 
 
 int main(int argc, char const * argv[]){
@@ -20,8 +21,11 @@ int main(int argc, char const * argv[]){
     }
     Nodo * root = NULL;
     root = lectura_csv(file,root);
-    printf("*** Altura del arbol: %d ***\n",profundidad(root));
-    print_nodos(root);
+    printf("Numero de alumnos: %d\n",cant_alumnos(root)); // Listo
+    float promedio = total_np(root)/cant_alumnos(root);
+    printf("Promedio: %.1f\n",promedio); // Listo
+    printf("Minimo: %.1f\n",min_np(root));
+    printf("Maximo: %.1f\n",max_np(root));
     printf("\n");
     return 0;
 }

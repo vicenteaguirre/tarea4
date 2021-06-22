@@ -1,4 +1,5 @@
-#pragma once 
+#ifndef ARBOL_H
+#define ARBOL_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,3 +25,4 @@ Nodo *rightRotate(Nodo * y);
 
 // Left rotate
 Nodo *leftRotate(Nodo *x);
+#endif
