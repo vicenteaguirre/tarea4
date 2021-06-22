@@ -4,7 +4,7 @@ int max(int a, int b){
 }
 int height(Nodo * N) {
   if (N == NULL)
-    return 0;
+    return -1;
   return N->height;
 }
 Nodo * crear_nodo(char * nombre, float nota_presentacion){
@@ -27,11 +27,12 @@ Nodo * insertar_nodo(Nodo * nodo,char * nombre, float nota_p){
     else return nodo;
     
     // Update height
-    nodo->height = 1 + max(height(nodo->left),height(nodo->right));
-    
+    int ma = max(height(nodo->left),height(nodo->right));
+    printf("max: %d\n",ma);
+    nodo->height = 1 + ma;
+    printf("altura: %d\n",nodo->height);
+    /*
     int balance = getBalance(nodo);
-
-    printf("%s -> Altura nodo:%d\n",nodo->nombre,balance);
 
     //Condiciones, falta ver si lo hacemos despues de insertar todo o cuando vamos insertando
     if (balance > 1 && nota_p < nodo->left->np) return rightRotate(nodo);
@@ -46,24 +47,24 @@ Nodo * insertar_nodo(Nodo * nodo,char * nombre, float nota_p){
     if (balance < -1 && nota_p < nodo->right->np) {
         nodo->right = rightRotate(nodo->right);
         return leftRotate(nodo);
-    }
+    }*/
 
     return nodo;
 
 }
 void print_nodos(Nodo *root){ //IRD
   if (root->left!=NULL) print_nodos(root->left);
-    printf("%s: %.1f, Altura: %d\n", root->nombre, root->np, root->height);
+    printf("%s: %.1f| Altura: %d\n", root->nombre, root->np, root->height);
   if (root->right!=NULL) print_nodos(root->right);;
 
 }
 void print_izq(Nodo *root){ //IRD
   if (root->left!=NULL) print_nodos(root->left);
-    printf("%s: %.1f, Altura: %d\n", root->nombre, root->np, root->height);
+    printf("%s: %.1f| Altura: %d\n", root->nombre, root->np, root->height);
 }
 void print_der(Nodo *root){ //IRD
   if (root->right!=NULL) print_nodos(root->right);;
-  printf("%s: %.1f, Altura: %d\n", root->nombre, root->np, root->height);
+  printf("%s: %.1f| Altura: %d\n", root->nombre, root->np, root->height);
 }
 
 // Get the balance factor

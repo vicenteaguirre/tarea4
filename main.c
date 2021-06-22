@@ -20,15 +20,15 @@ int main(int argc, char const * argv[]){
     }
     Nodo * root = NULL;
     root = lectura_csv(file,root);
-    printf("\n\n");
+    printf("\n\n---------");
     int altura_arbol = profundidad(root);
-    printf("%d",altura_arbol);
-    //print_nodos(root);
+    printf("Altura del arbol = %d\n",altura_arbol);
+    print_nodos(root);
     printf("\n");
 
-    printf("Nodos izq:\n");
+    printf("-------- Nodos izq --------\n");
     print_izq(root);
-    printf("Nodos der:\n");
+    printf("-------- Nodos der --------\n");
     print_der(root);
     return 0;
 }
