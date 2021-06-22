@@ -7,7 +7,7 @@
 
 
 int main(int argc, char const * argv[]){
-    printf("Inicio del programa\n\n");
+    printf("\nInicio del programa\n\n");
     FILE * file;
     if (argc != 2) {
         fprintf(stderr, "Debe ingresar solamente un argumento.");        
@@ -20,15 +20,8 @@ int main(int argc, char const * argv[]){
     }
     Nodo * root = NULL;
     root = lectura_csv(file,root);
-    printf("\n\n---------");
-    int altura_arbol = profundidad(root);
-    printf("Altura del arbol = %d\n",altura_arbol);
+    printf("*** Altura del arbol: %d ***\n",profundidad(root));
     print_nodos(root);
     printf("\n");
-
-    printf("-------- Nodos izq --------\n");
-    print_izq(root);
-    printf("-------- Nodos der --------\n");
-    print_der(root);
     return 0;
 }

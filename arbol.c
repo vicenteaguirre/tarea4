@@ -1,6 +1,8 @@
 #include "arbol.h"
 int max(int a, int b){
-    return (a > b)? a : b;
+  if(a>b)return a;
+  else if(a<b) return b;
+  else return a;
 }
 int height(Nodo * N) {
   if (N == NULL)
@@ -18,20 +20,17 @@ Nodo * crear_nodo(char * nombre, float nota_presentacion){
 }
 Nodo * insertar_nodo(Nodo * nodo,char * nombre, float nota_p){
     // Insertion
-    if(nodo == NULL) return crear_nodo(nombre,nota_p);
+    if(nodo == NULL) nodo = crear_nodo(nombre,nota_p);
+    
     
     if(nota_p < nodo->np) nodo->left = insertar_nodo(nodo->left, nombre, nota_p);
 
     else if(nota_p > nodo->np) nodo->right = insertar_nodo(nodo->right,nombre,nota_p);
     
-    else return nodo;
+
     
     // Update height
-    int ma = max(height(nodo->left),height(nodo->right));
-    printf("max: %d\n",ma);
-    nodo->height = 1 + ma;
-    printf("altura: %d\n",nodo->height);
-    /*
+    nodo->height = 1 + max(height(nodo->left),height(nodo->right));
     int balance = getBalance(nodo);
 
     //Condiciones, falta ver si lo hacemos despues de insertar todo o cuando vamos insertando
@@ -47,7 +46,7 @@ Nodo * insertar_nodo(Nodo * nodo,char * nombre, float nota_p){
     if (balance < -1 && nota_p < nodo->right->np) {
         nodo->right = rightRotate(nodo->right);
         return leftRotate(nodo);
-    }*/
+    }
 
     return nodo;
 
