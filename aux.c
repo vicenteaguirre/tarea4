@@ -1,17 +1,21 @@
 #include "aux.h"
 
-//https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/
-
-int profundidad(Nodo *raiz) { 
-    if (raiz == NULL)
-        return -1;
-    else {
-        int left = profundidad(raiz->left);
-        int right = profundidad(raiz->right);
-        if (left > right)
-            return (left + 1);
-        else 
-            return (right + 1);
-    }
-
+float max_flt(float a, float b){
+  if(a>b)return a;
+  else if(a<b) return b;
+  else return a;
+}
+float min_flt(float a, float b){
+  if(a>b)return b;
+  else if(a<b) return a;
+  else return a;
+}
+int max(int a, int b){
+  if(a>b)return a;
+  else if(a<b) return b;
+  else return a;
+}
+int height(Nodo * N) {
+  if (N == NULL) return -1;
+  return N->height;
 }

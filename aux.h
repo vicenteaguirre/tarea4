@@ -1,6 +1,6 @@
 #include "nodo.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-int profundidad(Nodo * raiz);
+float max_flt(float a, float b);
+float min_flt(float a, float b);
+int max(int a, int b);
+int height(Nodo * N);

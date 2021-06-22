@@ -20,9 +20,7 @@ Nodo * lectura_csv(FILE* f, Nodo * root) {
       field = strtok(NULL, ",");
     }
     np = sum/count;
-    ////// Insercion en el arbol
     root = insertar_nodo(root, nombre, np);
-    ///////
   }
   return root;
 }

@@ -3,7 +3,7 @@
 all: compilar ejecutar
 
 compilar: 
-	@gcc -o tarea4 main.c arbol.c lectura.c rotaciones.c aux.c funciones.c
+	@gcc -o tarea4 main.c arbol.c lectura.c aux.c funciones.c
 
 ejecutar: compilar
 	@./tarea4 notas.csv
